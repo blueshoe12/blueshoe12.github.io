@@ -1,1 +1,22 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+    <title>您無法訪問該頁面</title>
+    <style>
+        body {
+            font-size: 36px; /* 设置字体大小为36像素 */
+            font-family: "微軟正黑體", sans-serif; /* ERROR_DNS */
+        }
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>對不起，您您無法訪問此頁面</h1>
+        <p>這個頁面不可用。</p>
+    </div>
+</body>
+</html>
