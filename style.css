@@ -1,8 +1,26 @@
-body{
-    background-image:url("https://cdn.discordapp.com/attachments/1170205921775992945/1171840675537506396/pexels-ernesto-perez-18925583.jpg?ex=655e24ac&is=654bafac&hm=7453cfdc3647cce904fc7f31d71d1c916829cfa2f3d6a12c9291cb0cb51968bf&");
-    color:white;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2; /* 淺灰色背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-header{
-  text-align:center;
+.container {
+    max-width: 600px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    color: #666;
 }
