@@ -63,6 +63,48 @@
             text-decoration: underline;
         }
     </style>
+     <script>
+        // 禁止右键菜单和开发者工具
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault(); // 阻止默认右键菜单行为
+        });
+
+        // 监听键盘事件防止开发者工具
+        document.onkeydown = function(event) {
+            // 屏蔽 F12 键
+            if (event.keyCode == 123) {
+                return false;
+            }
+            // 屏蔽 Ctrl+Shift+I
+            else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
+                return false;
+            }
+            // 屏蔽 Ctrl+Shift+C
+            else if (event.ctrlKey && event.shiftKey && event.keyCode == 67) {
+                return false;
+            }
+        };
+
+        var windowHeight = window.innerHeight;
+        var devToolsOpen = false;
+
+        // 检测开发者工具
+        function checkDevTools() {
+            if (window.outerWidth - window.innerWidth > 10 || window.outerHeight - window.innerHeight > 10) {
+                if (!devToolsOpen) {
+                    // 开发者工具打开时触发页面跳转
+                    window.location.href = "about:blank";
+                    devToolsOpen = true;
+                }
+            } else {
+                // 开发者工具关闭时重置状态
+                devToolsOpen = false;
+            }
+        }
+
+        // 每1秒检查一次开发者工具状态
+        setInterval(checkDevTools, 1);
+    </script>
 </head>
 <body>
     <div class="container">
