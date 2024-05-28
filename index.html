@@ -3,118 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello I am blueshoe</title>
-    <link rel="icon" href="https://cdn.discordapp.com/avatars/1073453948352073728/ed053f700a9b1f398c703c6de33e9430.png?size=512" type="image/png">
+    <title>905 排球 時時錄影</title>
+    <!-- 引入 CSS 文件（例如Bootstrap） -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 自定義 CSS -->
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url('https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            background-color: #f8f9fa;
         }
-        .container {
-            max-width: 400px;
-            padding: 40px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            border: 4px solid #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .name {
-            font-size: 28px;
-            font-weight: bold;
-            color: #ff6600;
-            margin-bottom: 10px;
-        }
-        .job-title {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 20px;
-        }
-        .description {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 20px;
-        }
-        .contact-info {
-            font-size: 14px;
-            color: #777;
-        }
-        .contact-info a {
+        h2 {
             color: #007bff;
-            text-decoration: none;
         }
-        .contact-info a:hover {
-            text-decoration: underline;
+        .video-thumbnail {
+            cursor: pointer;
         }
     </style>
-     <script>
-        // 禁止右键菜单和开发者工具
-        document.addEventListener('contextmenu', function(event) {
-            event.preventDefault(); // 阻止默认右键菜单行为
-        });
-
-        // 监听键盘事件防止开发者工具
-        document.onkeydown = function(event) {
-            // 屏蔽 F12 键
-            if (event.keyCode == 123) {
-                return false;
-            }
-            // 屏蔽 Ctrl+Shift+I
-            else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
-                return false;
-            }
-            // 屏蔽 Ctrl+Shift+C
-            else if (event.ctrlKey && event.shiftKey && event.keyCode == 67) {
-                return false;
-            }
-        };
-
-        var windowHeight = window.innerHeight;
-        var devToolsOpen = false;
-
-        // 检测开发者工具
-        function checkDevTools() {
-            if (window.outerWidth - window.innerWidth > 10 || window.outerHeight - window.innerHeight > 10) {
-                if (!devToolsOpen) {
-                    // 开发者工具打开时触发页面跳转
-                    window.location.href = "about:blank";
-                    devToolsOpen = true;
-                }
-            } else {
-                // 开发者工具关闭时重置状态
-                devToolsOpen = false;
-            }
-        }
-
-        // 每1秒检查一次开发者工具状态
-        setInterval(checkDevTools, 1);
-    </script>
 </head>
 <body>
-    <div class="container">
-        <img class="profile-img" src="https://cdn.discordapp.com/avatars/1073453948352073728/ed053f700a9b1f398c703c6de33e9430.png?size=512" alt="Profile Picture">
-        <div class="name">Hello I'm blueshoe</div>
-        <div class="description">大家好，我是 blueshoe 。我目前是一名學生，正在學習。我住在臺灣。你一定想知道為什麼我使用 .uk 而不是 .tw。這純粹是因為 .uk 狠便宜。 .tw 非常貴。 一年新臺幣820元，超級貴。(.uk 零零總總算起來也才兩百多塊)</div>
-        <div class="contact-info">
-            <p>Email: 正在  </p>
-            <p>Website: <a href=" " style="color: #009933;"</a></p>
+    <div class="container mt-5">
+        <!-- 主影片播放器 -->
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <video id="mainVideoPlayer" controls width="100%">
+                    <source src="VID_20240528_084115.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <!-- 影片縮圖預覽 -->
+        <div class="row mt-4">
+            <div class="col-md-8 offset-md-2">
+                <h2>影片預覽</h2>
+                <div class="d-flex justify-content-between">
+                    <img src="thumbnail1.jpg" alt="Video 1" class="img-thumbnail video-thumbnail" data-video-src="VID_20240528_084115.mp4" width="150">
+                    <img src="thumbnail2.jpg" alt="Video 2" class="img-thumbnail video-thumbnail" data-video-src="VID_20240528_084116.mp4" width="150">
+                    <img src="thumbnail3.jpg" alt="Video 3" class="img-thumbnail video-thumbnail" data-video-src="VID_20240528_084117.mp4" width="150">
+                </div>
+            </div>
+        </div>
+
+        <!-- 實時瀏覽區域 -->
+        <div class="row mt-5">
+            <div class="col-md-8 offset-md-2">
+                <h2>實時瀏覽</h2>
+                <div id="realTimeContent">
+                    <!-- 在這裡顯示實時內容 -->
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- 引入 JavaScript 文件 -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- 自定義 JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const thumbnails = document.querySelectorAll('.video-thumbnail');
+            const mainVideoPlayer = document.getElementById('mainVideoPlayer');
+
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    const videoSrc = this.getAttribute('data-video-src');
+                    const videoSource = mainVideoPlayer.querySelector('source');
+                    videoSource.setAttribute('src', videoSrc);
+                    mainVideoPlayer.load();
+                    mainVideoPlayer.play();
+                });
+            });
+        });
+    </script>
 </body>
 </html>
